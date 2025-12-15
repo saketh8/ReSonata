@@ -4,8 +4,7 @@
 
 ## 🔗 Repository
 
-**GitHub:** `https://github.com/YOUR_USERNAME/ReSonata`  
-*Replace YOUR_USERNAME with your GitHub username after creating the repository.*
+**GitHub:** [https://github.com/saketh8/ReSonata](https://github.com/saketh8/ReSonata)
 
 ---
 
@@ -238,7 +237,7 @@ ReSonata can scale into multiple business verticals: music education ($6B market
 
 The project demonstrates how AI can preserve cultural heritage through pattern learning while enabling innovation—a unique approach in the AI music generation space."
 
-**GitHub:** `https://github.com/YOUR_USERNAME/ReSonata`
+**GitHub:** [https://github.com/saketh8/ReSonata](https://github.com/saketh8/ReSonata)
 
 ---
 
