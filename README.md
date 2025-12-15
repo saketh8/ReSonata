@@ -54,7 +54,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # Set API key
-export MISTRAL_API_KEY=UuqBcnVCwr7M7qsVZmO8G8JTmRa61DQS
+export MISTRAL_API_KEY=YOUR_API_KEY
 
 # Optional: Redis for caching (for 10k credits prize)
 # brew install redis  # macOS
@@ -204,27 +204,6 @@ When you select mood and innovation level, our AI system applies these preferenc
 - Stateless design for horizontal scaling
 
 ---
-
-## 🏆 Hackathon Submission
-
-### ✅ Eligibility: YES
-
-**AI Agent Requirement:** ✅ Met
-- Uses Mistral AI for intelligent compositional guidance
-- Algorithmic music generation with pattern learning
-- Autonomous decision-making
-
-**Scalable Business:** ✅ Met
-- Multiple revenue streams
-- Large addressable markets ($28.5B+)
-- Clear business model
-
-**Redis Integration:** ✅ Met
-- Caching Mistral API responses
-- Rate limiting
-- Session management
-- Analytics tracking
-- **Eligible for 10k Redis credits prize**
 
 ### Submission Form Template
 
