@@ -1,0 +1,344 @@
+check for stockout errors for both clusters                                                                                                                  
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_gke_stockout_errors (cluster-director-gke-ai MCP Server) {"ClusterFilter":"gke"}                                                                   │
+│                                                                                                                                                              │
+│ --- GKE Clusters ---                                                                                                                                         │
+│ Found 100 stockout error(s) across 5 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-east4-a                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T22:31:22Z, 2026-02-09T22:31:23Z, 2026-02-09T22:31:24Z, 2026-02-09T22:31:54Z, 2026-02-09T23:35:40Z, 2026-02-09T23:35:41Z,      │
+│ 2026-02-09T23:35:41Z, 2026-02-09T23:35:42Z, 2026-02-10T00:42:21Z, 2026-02-10T00:42:21Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-east4-c                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T23:05:48Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:50Z, 2026-02-10T00:08:32Z, 2026-02-10T00:08:35Z,      │
+│ 2026-02-10T00:08:35Z, 2026-02-10T00:08:38Z, 2026-02-10T01:10:13Z, 2026-02-10T01:10:13Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-c                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:14:39Z, 2026-02-09T23:14:40Z, 2026-02-09T23:14:41Z, 2026-02-09T23:14:43Z, 2026-02-10T00:17:37Z, 2026-02-10T00:17:38Z,      │
+│ 2026-02-10T00:17:40Z, 2026-02-10T00:17:41Z, 2026-02-10T01:20:49Z, 2026-02-10T01:20:51Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│      - Name: reservation-20251229-064124-kv-sh | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2025-12-28T22:42:07.209-08:00     │
+│      - Name: reservation-not-shared | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2026-01-19T06:42:58.261-08:00                │
+│                                                                                                                                                              │
+│ Zone: us-central1-b                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:29:20Z, 2026-02-09T23:29:21Z, 2026-02-09T23:29:22Z, 2026-02-09T23:29:22Z, 2026-02-10T00:33:46Z, 2026-02-10T00:33:47Z,      │
+│ 2026-02-10T00:33:47Z, 2026-02-10T00:33:48Z, 2026-02-10T01:48:09Z, 2026-02-10T01:48:10Z ... (and 6 more)                                                      │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-east4-b                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T22:20:08Z, 2026-02-09T22:20:08Z, 2026-02-09T22:20:10Z, 2026-02-09T22:20:12Z, 2026-02-09T23:23:46Z, 2026-02-09T23:23:46Z,      │
+│ 2026-02-09T23:23:46Z, 2026-02-09T23:23:48Z, 2026-02-10T00:29:36Z, 2026-02-10T00:29:37Z ... (and 14 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (20 found): gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-9608,                               │
+│ gke-nadig-gpu1-6953-default-pool-7cb0ec2c-z3bd, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-mhht, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf,              │
+│ gke-nadig-gpu1-9378-default-pool-e2bf8c3a-lgml, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-6j4m, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-2cdf,              │
+│ gke-nadig-gpu1-7332-default-pool-894b4642-vgr0, gke-nadig-gpu1-7332-default-pool-894b4642-jd3n, gke-nadig-gpu1-7332-default-pool-894b4642-vz4q,              │
+│ gke-nadig-gpu1-7332-default-pool-894b4642-3z02, gke-nadig-gpu1-6811-default-pool-a73d3513-z4l4, gke-nadig-gpu1-6811-default-pool-a73d3513-r4kk,              │
+│ gke-nadig-gpu1-6811-default-pool-a73d3513-rk7k, gke-nadig-gpu1-6811-default-pool-a73d3513-8z3h, gke-nadig-gpu1-9130-default-pool-6df96fcf-84td,              │
+│ gke-nadig-gpu1-9130-default-pool-6df96fcf-7g35, gke-nadig-gpu1-9130-default-pool-6df96fcf-0wlc, gke-nadig-gpu1-9130-default-pool-6df96fcf-g7xn               │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx                                            │
+│   Instance Name: gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx                                                                                              │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx' not found in any zone of project 'ns-playground-a'. Check your        │
+│ PROJECT_ID configuration.                                                                                                                                    │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│ ✓  search_slurm_stockout_errors (cluster-director-slurm MCP Server) {"ClusterFilter":"slurm"}                                                                │
+│                                                                                                                                                              │
+│ --- Slurm Clusters ---                                                                                                                                       │
+│ Found 100 stockout error(s) across 2 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-south1-b                                                                                                                                            │
+│   Error Timestamps: 2026-02-10T01:15:20Z, 2026-02-10T01:15:20Z, 2026-02-10T01:19:01Z, 2026-02-10T01:24:03Z, 2026-02-10T01:37:23Z, 2026-02-10T01:37:24Z,      │
+│ 2026-02-10T01:41:34Z, 2026-02-10T01:46:27Z, 2026-02-10T01:59:45Z, 2026-02-10T01:59:46Z ... (and 39 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-a                                                                                                                                          │
+│   Error Timestamps: 2026-02-10T01:59:00Z, 2026-02-10T01:59:01Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z,      │
+│ 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:03Z, 2026-02-10T01:59:03Z ... (and 41 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (34 found): clusterrk2-nodeset1-2, clusterrk2-nodeset1-3, clusterrk2-nodeset1-1, clusterrk2-nodeset1-0, nadiggpu64-nodeset1-58,           │
+│ nadiggpu64-nodeset1-59, nadiggpu64-nodeset1-27, nadiggpu64-nodeset1-30, nadiggpu64-nodeset1-38, nadiggpu64-nodeset1-3, nadiggpu64-nodeset1-32,               │
+│ nadiggpu64-nodeset1-44, nadiggpu64-nodeset1-56, nadiggpu64-nodeset1-36, nadiggpu64-nodeset1-5, nadiggpu64-nodeset1-43, nadiggpu64-nodeset1-34,               │
+│ nadiggpu64-nodeset1-14, nadiggpu64-nodeset1-11, nadiggpu64-nodeset1-0, nadiggpu64-nodeset1-18, nadiggpu64-nodeset1-17, nadiggpu64-nodeset1-20,               │
+│ nadiggpu64-nodeset1-24, nadiggpu64-nodeset1-16, nadiggpu64-nodeset1-19, nadiggpu64-nodeset1-10, nadiggpu64-nodeset1-37, nadiggpu64-nodeset1-21,              │
+│ nadiggpu64-nodeset1-47, nadiggpu64-nodeset1-4, nadiggpu64-nodeset1-1, nadiggpu64-nodeset1-33, nadiggpu64-nodeset1-54                                         │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: clusterrk2-nodeset1-2                                                                     │
+│   Instance Name: clusterrk2-nodeset1-2                                                                                                                       │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'clusterrk2-nodeset1-2' not found in any zone of project 'ns-playground-a'. Check your PROJECT_ID configuration.       │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ Stockout errors were found for both GKE and Slurm clusters in multiple zones.
+  For GKE, there are reservations in us-central1-c but none in us-east4-a, us-east4-c, us-central1-b, and us-east4-b.
+  For Slurm, no reservations were found in us-south1-b and us-central1-a.
+
+
+  I encountered an error when trying to check the consumption type for the affected instances, as the instances were not found in the project 'ns-playground-a'.
+  This suggests that the ProjectID might be incorrect.
+
+
+  Could you please provide the correct Project ID so I can investigate the instance consumption details further?
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for stockout errors for slurm clusters                                                                                                                 
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_slurm_stockout_errors (cluster-director-slurm MCP Server) {"ClusterFilter":"slurm"}                                                                │
+│                                                                                                                                                              │
+│ --- Slurm Clusters ---                                                                                                                                       │
+│ Found 100 stockout error(s) across 2 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-south1-b                                                                                                                                            │
+│   Error Timestamps: 2026-02-10T01:15:20Z, 2026-02-10T01:15:20Z, 2026-02-10T01:19:01Z, 2026-02-10T01:24:03Z, 2026-02-10T01:37:23Z, 2026-02-10T01:37:24Z,      │
+│ 2026-02-10T01:41:34Z, 2026-02-10T01:46:27Z, 2026-02-10T01:59:45Z, 2026-02-10T01:59:46Z ... (and 39 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-a                                                                                                                                          │
+│   Error Timestamps: 2026-02-10T01:59:00Z, 2026-02-10T01:59:01Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z,      │
+│ 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:03Z, 2026-02-10T01:59:03Z ... (and 41 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (34 found): clusterrk2-nodeset1-2, clusterrk2-nodeset1-3, clusterrk2-nodeset1-1, clusterrk2-nodeset1-0, nadiggpu64-nodeset1-58,           │
+│ nadiggpu64-nodeset1-59, nadiggpu64-nodeset1-27, nadiggpu64-nodeset1-30, nadiggpu64-nodeset1-38, nadiggpu64-nodeset1-3, nadiggpu64-nodeset1-32,               │
+│ nadiggpu64-nodeset1-44, nadiggpu64-nodeset1-56, nadiggpu64-nodeset1-36, nadiggpu64-nodeset1-5, nadiggpu64-nodeset1-43, nadiggpu64-nodeset1-34,               │
+│ nadiggpu64-nodeset1-14, nadiggpu64-nodeset1-11, nadiggpu64-nodeset1-0, nadiggpu64-nodeset1-18, nadiggpu64-nodeset1-17, nadiggpu64-nodeset1-20,               │
+│ nadiggpu64-nodeset1-24, nadiggpu64-nodeset1-16, nadiggpu64-nodeset1-19, nadiggpu64-nodeset1-10, nadiggpu64-nodeset1-37, nadiggpu64-nodeset1-21,              │
+│ nadiggpu64-nodeset1-47, nadiggpu64-nodeset1-4, nadiggpu64-nodeset1-1, nadiggpu64-nodeset1-33, nadiggpu64-nodeset1-54                                         │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: clusterrk2-nodeset1-2                                                                     │
+│   Instance Name: clusterrk2-nodeset1-2                                                                                                                       │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'clusterrk2-nodeset1-2' not found in any zone of project 'ns-playground-a'. Check your PROJECT_ID configuration.       │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ I have checked for stockout errors for Slurm clusters.
+  Found 100 stockout errors across two zones: us-south1-b and us-central1-a. No reservations were found in these zones.
+
+
+  I am still unable to retrieve the instance consumption details due to an incorrect ProjectID in the previous attempts. The error message indicates that
+  instance 'clusterrk2-nodeset1-2' was not found in project 'ns-playground-a'.
+
+
+  If you would like to investigate the consumption type of these instances, please provide the correct ProjectID.
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for stockout errors for gke clusters                                                                                                                   
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_gke_stockout_errors (cluster-director-gke-ai MCP Server) {"ClusterFilter":"gke"}                                                                   │
+│                                                                                                                                                              │
+│ --- GKE Clusters ---                                                                                                                                         │
+│ Found 100 stockout error(s) across 5 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-central1-b                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:29:20Z, 2026-02-09T23:29:21Z, 2026-02-09T23:29:22Z, 2026-02-09T23:29:22Z, 2026-02-10T00:33:46Z, 2026-02-10T00:33:47Z,      │
+│ 2026-02-10T00:33:47Z, 2026-02-10T00:33:48Z, 2026-02-10T01:48:09Z, 2026-02-10T01:48:10Z ... (and 6 more)                                                      │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-east4-a                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T22:31:22Z, 2026-02-09T22:31:23Z, 2026-02-09T22:31:24Z, 2026-02-09T22:31:54Z, 2026-02-09T23:35:40Z, 2026-02-09T23:35:41Z,      │
+│ 2026-02-09T23:35:41Z, 2026-02-09T23:35:42Z, 2026-02-10T00:42:21Z, 2026-02-10T00:42:21Z ... (and 14 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-east4-c                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T23:05:48Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:50Z, 2026-02-10T00:08:32Z, 2026-02-10T00:08:35Z,      │
+│ 2026-02-10T00:08:35Z, 2026-02-10T00:08:38Z, 2026-02-10T01:10:13Z, 2026-02-10T01:10:13Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-c                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:14:39Z, 2026-02-09T23:14:40Z, 2026-02-09T23:14:41Z, 2026-02-09T23:14:43Z, 2026-02-10T00:17:37Z, 2026-02-10T00:17:38Z,      │
+│ 2026-02-10T00:17:40Z, 2026-02-10T00:17:41Z, 2026-02-10T01:20:49Z, 2026-02-10T01:20:51Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│      - Name: reservation-20251229-064124-kv-sh | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2025-12-28T22:42:07.209-08:00     │
+│      - Name: reservation-not-shared | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2026-01-19T06:42:58.261-08:00                │
+│                                                                                                                                                              │
+│ Zone: us-east4-b                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T23:23:46Z, 2026-02-09T23:23:46Z, 2026-02-09T23:23:46Z, 2026-02-09T23:23:48Z, 2026-02-10T00:29:36Z, 2026-02-10T00:29:37Z,      │
+│ 2026-02-10T00:29:37Z, 2026-02-10T00:29:38Z, 2026-02-10T01:31:55Z, 2026-02-10T01:31:56Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (20 found): gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-lgml,                               │
+│ gke-nadig-gpu1-9378-default-pool-e2bf8c3a-6j4m, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-2cdf, gke-nadig-gpu1-7332-default-pool-894b4642-vgr0,              │
+│ gke-nadig-gpu1-7332-default-pool-894b4642-jd3n, gke-nadig-gpu1-7332-default-pool-894b4642-vz4q, gke-nadig-gpu1-7332-default-pool-894b4642-3z02,              │
+│ gke-nadig-gpu1-6811-default-pool-a73d3513-z4l4, gke-nadig-gpu1-6811-default-pool-a73d3513-r4kk, gke-nadig-gpu1-6811-default-pool-a73d3513-rk7k,              │
+│ gke-nadig-gpu1-6811-default-pool-a73d3513-8z3h, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-mhht, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-z3bd,              │
+│ gke-nadig-gpu1-6953-default-pool-7cb0ec2c-9608, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx, gke-nadig-gpu1-9130-default-pool-6df96fcf-84td,              │
+│ gke-nadig-gpu1-9130-default-pool-6df96fcf-7g35, gke-nadig-gpu1-9130-default-pool-6df96fcf-0wlc, gke-nadig-gpu1-9130-default-pool-6df96fcf-g7xn               │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf                                            │
+│   Instance Name: gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf                                                                                              │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf' not found in any zone of project 'ns-playground-a'. Check your        │
+│ PROJECT_ID configuration.                                                                                                                                    │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ I have checked for stockout errors for GKE clusters.
+  Found 100 stockout errors across 5 zones. Reservations are present in us-central1-c (two reservations for a3-megagpu-8g machine type), but not in
+  us-central1-b, us-east4-a, us-east4-c, and us-east4-b.
+
+
+  I am still unable to retrieve the instance consumption details due to an incorrect ProjectID. The error message indicates that instance
+  'gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf' was not found in project 'ns-playground-a'.
+
+
+  If you would like to investigate the consumption type of these instances, please provide the correct ProjectID.
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for stockout errors for slurm clusters from Dec 1 to Dec 31                                                                                            
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_slurm_stockout_errors (cluster-director-slurm MCP Server) {"EndDate":"2026-12-31","ClusterFilter":"slurm","StartDate":"2026-12-01"}                │
+│                                                                                                                                                              │
+│ No stockout errors (ZONE_RESOURCE_POOL_EXHAUSTED) found in project ns-playground-a between 2026-12-01 and 2026-12-31 for the requested filter.               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ No stockout errors were found for Slurm clusters between December 1st and December 31st, 2026.
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for stockout errors for both clusters                                                                                                                  
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_gke_stockout_errors (cluster-director-gke-ai MCP Server) {"ClusterFilter":"gke"}                                                                   │
+│                                                                                                                                                              │
+│ --- GKE Clusters ---                                                                                                                                         │
+│ Found 100 stockout error(s) across 5 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-east4-a                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T22:31:22Z, 2026-02-09T22:31:23Z, 2026-02-09T22:31:24Z, 2026-02-09T22:31:54Z, 2026-02-09T23:35:40Z, 2026-02-09T23:35:41Z,      │
+│ 2026-02-09T23:35:41Z, 2026-02-09T23:35:42Z, 2026-02-10T00:42:21Z, 2026-02-10T00:42:21Z ... (and 14 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-east4-c                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T23:05:48Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:49Z, 2026-02-09T23:05:50Z, 2026-02-10T00:08:32Z, 2026-02-10T00:08:35Z,      │
+│ 2026-02-10T00:08:35Z, 2026-02-10T00:08:38Z, 2026-02-10T01:10:13Z, 2026-02-10T01:10:13Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-c                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:14:39Z, 2026-02-09T23:14:40Z, 2026-02-09T23:14:41Z, 2026-02-09T23:14:43Z, 2026-02-10T00:17:37Z, 2026-02-10T00:17:38Z,      │
+│ 2026-02-10T00:17:40Z, 2026-02-10T00:17:41Z, 2026-02-10T01:20:49Z, 2026-02-10T01:20:51Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│      - Name: reservation-20251229-064124-kv-sh | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2025-12-28T22:42:07.209-08:00     │
+│      - Name: reservation-not-shared | MachineType: a3-megagpu-8g | Status: READY (Specific Required) | Created: 2026-01-19T06:42:58.261-08:00                │
+│                                                                                                                                                              │
+│ Zone: us-east4-b                                                                                                                                             │
+│   Error Timestamps: 2026-02-09T23:23:46Z, 2026-02-09T23:23:46Z, 2026-02-09T23:23:46Z, 2026-02-09T23:23:48Z, 2026-02-10T00:29:36Z, 2026-02-10T00:29:37Z,      │
+│ 2026-02-10T00:29:37Z, 2026-02-10T00:29:38Z, 2026-02-10T01:31:55Z, 2026-02-10T01:31:56Z ... (and 10 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-b                                                                                                                                          │
+│   Error Timestamps: 2026-02-09T23:29:20Z, 2026-02-09T23:29:21Z, 2026-02-09T23:29:22Z, 2026-02-09T23:29:22Z, 2026-02-10T00:33:46Z, 2026-02-10T00:33:47Z,      │
+│ 2026-02-10T00:33:47Z, 2026-02-10T00:33:48Z, 2026-02-10T01:48:09Z, 2026-02-10T01:48:10Z ... (and 6 more)                                                      │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (20 found): gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-lgml,                               │
+│ gke-nadig-gpu1-9378-default-pool-e2bf8c3a-6j4m, gke-nadig-gpu1-9378-default-pool-e2bf8c3a-2cdf, gke-nadig-gpu1-7332-default-pool-894b4642-vgr0,              │
+│ gke-nadig-gpu1-7332-default-pool-894b4642-jd3n, gke-nadig-gpu1-7332-default-pool-894b4642-vz4q, gke-nadig-gpu1-7332-default-pool-894b4642-3z02,              │
+│ gke-nadig-gpu1-6811-default-pool-a73d3513-z4l4, gke-nadig-gpu1-6811-default-pool-a73d3513-r4kk, gke-nadig-gpu1-6811-default-pool-a73d3513-rk7k,              │
+│ gke-nadig-gpu1-6811-default-pool-a73d3513-8z3h, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-mhht, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-z3bd,              │
+│ gke-nadig-gpu1-6953-default-pool-7cb0ec2c-9608, gke-nadig-gpu1-6953-default-pool-7cb0ec2c-w5cx, gke-nadig-gpu1-9130-default-pool-6df96fcf-84td,              │
+│ gke-nadig-gpu1-9130-default-pool-6df96fcf-7g35, gke-nadig-gpu1-9130-default-pool-6df96fcf-0wlc, gke-nadig-gpu1-9130-default-pool-6df96fcf-g7xn               │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf                                            │
+│   Instance Name: gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf                                                                                              │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'gke-nadig-gpu1-9378-default-pool-e2bf8c3a-q2wf' not found in any zone of project 'ns-playground-a'. Check your        │
+│ PROJECT_ID configuration.                                                                                                                                    │
+│                                                                                                                                                              │
+│                                                                                                                                                              │
+│ ✓  search_slurm_stockout_errors (cluster-director-slurm MCP Server) {"ClusterFilter":"slurm"}                                                                │
+│                                                                                                                                                              │
+│ --- Slurm Clusters ---                                                                                                                                       │
+│ Found 100 stockout error(s) across 2 zone(s).                                                                                                                │
+│                                                                                                                                                              │
+│ Zone: us-south1-b                                                                                                                                            │
+│   Error Timestamps: 2026-02-10T01:15:20Z, 2026-02-10T01:15:20Z, 2026-02-10T01:19:01Z, 2026-02-10T01:24:03Z, 2026-02-10T01:37:23Z, 2026-02-10T01:37:24Z,      │
+│ 2026-02-10T01:41:34Z, 2026-02-10T01:46:27Z, 2026-02-10T01:59:45Z, 2026-02-10T01:59:46Z ... (and 39 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Zone: us-central1-a                                                                                                                                          │
+│   Error Timestamps: 2026-02-10T01:59:00Z, 2026-02-10T01:59:01Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z,      │
+│ 2026-02-10T01:59:02Z, 2026-02-10T01:59:02Z, 2026-02-10T01:59:03Z, 2026-02-10T01:59:03Z ... (and 41 more)                                                     │
+│   Current Reservations Details:                                                                                                                              │
+│     (No reservations found in this zone)                                                                                                                     │
+│                                                                                                                                                              │
+│ Affected Instances (34 found): clusterrk2-nodeset1-2, clusterrk2-nodeset1-3, clusterrk2-nodeset1-1, clusterrk2-nodeset1-0, nadiggpu64-nodeset1-58,           │
+│ nadiggpu64-nodeset1-59, nadiggpu64-nodeset1-27, nadiggpu64-nodeset1-30, nadiggpu64-nodeset1-38, nadiggpu64-nodeset1-3, nadiggpu64-nodeset1-32,               │
+│ nadiggpu64-nodeset1-44, nadiggpu64-nodeset1-56, nadiggpu64-nodeset1-36, nadiggpu64-nodeset1-5, nadiggpu64-nodeset1-43, nadiggpu64-nodeset1-34,               │
+│ nadiggpu64-nodeset1-14, nadiggpu64-nodeset1-11, nadiggpu64-nodeset1-0, nadiggpu64-nodeset1-18, nadiggpu64-nodeset1-17, nadiggpu64-nodeset1-20,               │
+│ nadiggpu64-nodeset1-24, nadiggpu64-nodeset1-16, nadiggpu64-nodeset1-19, nadiggpu64-nodeset1-10, nadiggpu64-nodeset1-37, nadiggpu64-nodeset1-21,              │
+│ nadiggpu64-nodeset1-47, nadiggpu64-nodeset1-4, nadiggpu64-nodeset1-1, nadiggpu64-nodeset1-33, nadiggpu64-nodeset1-54                                         │
+│                                                                                                                                                              │
+│ Checking consumption type for the most recently affected instance: clusterrk2-nodeset1-2                                                                     │
+│   Instance Name: clusterrk2-nodeset1-2                                                                                                                       │
+│   Provisioning Model:                                                                                                                                        │
+│   Reservation Affinity:                                                                                                                                      │
+│   Consumption Status: Error: instance 'clusterrk2-nodeset1-2' not found in any zone of project 'ns-playground-a'. Check your PROJECT_ID configuration.       │
+│                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ I have checked for stockout errors for both GKE and Slurm clusters.
+
+
+  For GKE clusters:
+   * Found 100 stockout errors across 5 zones.
+   * Reservations are present in us-central1-c (two reservations for a3-megagpu-8g machine type), but no reservations were found in us-east4-a, us-east4-c,
+     us-east4-b, and us-central1-b.
+
+
+  For Slurm clusters:
+   * Found 100 stockout errors across 2 zones (us-south1-b and us-central1-a).
+   * No reservations were found in these zones.
+
+  In both cases, I am unable to retrieve the instance consumption details for affected instances due to an incorrect ProjectID (instances were not found in
+  'ns-playground-a').
+
+
+  If you would like a complete analysis of instance consumption, please provide the correct ProjectID.
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for the stockout errors for gke clusters from last 7 days                                                                                              
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_gke_stockout_errors (cluster-director-gke-ai MCP Server) {"NumberOfDays":7,"ClusterFilter":"gke"}                                                  │
+│                                                                                                                                                              │
+│ No stockout errors (ZONE_RESOURCE_POOL_EXHAUSTED) found in project ns-playground-a between 2026-02-16 and 2026-02-23 for the requested filter.               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ No stockout errors were found for GKE clusters in the last 7 days (between 2026-02-16 and 2026-02-23).
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+ > check for the stockout errors for gke clusters from last 10 days                                                                                             
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ✓  search_gke_stockout_errors (cluster-director-gke-ai MCP Server) {"ClusterFilter":"gke","NumberOfDays":10}                                                 │
+│                                                                                                                                                              │
+│ No stockout errors (ZONE_RESOURCE_POOL_EXHAUSTED) found in project ns-playground-a between 2026-02-13 and 2026-02-23 for the requested filter.               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ No stockout errors were found for GKE clusters in the last 10 days (between 2026-02-13 and 2026-02-23).
