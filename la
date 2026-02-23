@@ -1,0 +1,10 @@
+go build ./...
+# cluster-director-mcp/genericCore
+genericCore/genericCore.go:32:2: "cloud.google.com/go/logging" imported and not used
+genericCore/genericCore.go:669:2: undefined: filterLower
+genericCore/genericCore.go:684:63: undefined: processor
+genericCore/genericCore.go:698:5: undefined: filterLower
+genericCore/genericCore.go:700:12: undefined: filterLower
+genericCore/genericCore.go:809:2: undefined: filterLower
+genericCore/genericCore.go:811:5: undefined: filterLower
+genericCore/genericCore.go:813:12: undefined: filterLower
